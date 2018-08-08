@@ -1,8 +1,9 @@
 const chalk = require('chalk');
 var _ = require('lodash');
-var logger = require('./lib/logger')
+var logger = require('./lib/logger');
+var logs = require('./data/logs');
 
-logger.log('hello', 'info');
-logger.info('hello');
-logger.warning('hello');
-logger.error('hello');
+
+_.each(logs, function(entry){
+  logger.log(entry.message, entry.level);
+});
